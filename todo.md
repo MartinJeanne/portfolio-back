@@ -1,2 +1,2 @@
-security, jwt?
-.env file(s) for production & dev mysql infos
+testing dockerzation
+CI/CD, and deploy in prod
