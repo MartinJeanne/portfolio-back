@@ -1,2 +1,1 @@
-testing dockerzation
-CI/CD, and deploy in prod
+CORS for prod, put infos in .env
