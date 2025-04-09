@@ -44,3 +44,6 @@ logging:
         type:
           descriptor:
             sql: trace
+
+jwt:
+  secret: ${JWT_SECRET:611bd31f2abc10ac666eb377691d9bf61c6f397de8dc29c1d9c1d022d81f1a04}

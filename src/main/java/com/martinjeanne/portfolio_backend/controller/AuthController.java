@@ -2,14 +2,9 @@ package com.martinjeanne.portfolio_backend.controller;
 
 import com.martinjeanne.portfolio_backend.configuration.JwtService;
 import com.martinjeanne.portfolio_backend.model.dto.AuthResponseDto;
-import com.martinjeanne.portfolio_backend.model.dto.ContactMessageDto;
 import com.martinjeanne.portfolio_backend.model.dto.UserDto;
-import com.martinjeanne.portfolio_backend.model.entity.ContactMessage;
-import com.martinjeanne.portfolio_backend.repo.ContactMessageRepo;
-import com.martinjeanne.portfolio_backend.service.EmailService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

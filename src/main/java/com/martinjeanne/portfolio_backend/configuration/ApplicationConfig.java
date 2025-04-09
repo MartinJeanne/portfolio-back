@@ -3,6 +3,7 @@ package com.martinjeanne.portfolio_backend.configuration;
 import com.martinjeanne.portfolio_backend.model.entity.User;
 import com.martinjeanne.portfolio_backend.repo.UserRepo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,6 +22,12 @@ public class ApplicationConfig {
 
     private final UserRepo userRepo;
 
+    @Value("${AUTH_USERNAME}")
+    private String AUTH_USERNAME;
+
+    @Value("${AUTH_PASSWORD}")
+    private String AUTH_PASSWORD;
+
     @Bean
     public UserDetailsService userDetailsService() {
         return username -> userRepo.findByUsername(username)
@@ -30,10 +37,10 @@ public class ApplicationConfig {
     @Bean
     public CommandLineRunner init(PasswordEncoder encoder) {
         return args -> {
-            if (userRepo.findByUsername("martin").isEmpty()) {
+            if (userRepo.findByUsername(AUTH_USERNAME).isEmpty()) {
                 User user = new User();
-                user.setUsername("martin");
-                user.setPassword(encoder.encode("martin"));
+                user.setUsername(AUTH_USERNAME);
+                user.setPassword(encoder.encode(AUTH_PASSWORD));
                 userRepo.save(user);
             }
         };
