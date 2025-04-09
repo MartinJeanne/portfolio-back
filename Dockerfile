@@ -9,6 +9,6 @@ RUN mvn -f pom.xml clean package -Dmaven.test.skip
 FROM amazoncorretto:21-alpine-jdk
 WORKDIR /usr/portfolio-back
 COPY .env .
-COPY --from=build /usr/portfolio-back/target/portfolio-back-1.0.0-SNAPSHOT.jar portfolio-back.jar
+COPY --from=build /usr/portfolio-back/target/portfolio-back-0.0.1-SNAPSHOT.jar portfolio-back.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "portfolio-back.jar"]

@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.martinjeanne</groupId>
-	<artifactId>portfolio-backend</artifactId>
+	<artifactId>portfolio-back</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>portfolio-backend</name>
+	<name>portfolio-back</name>
 	<description>Spring Boot Backend of my portfolio</description>
 	<url/>
 	<licenses>
