@@ -1,14 +1,14 @@
 # Build stage
 FROM maven:3.9.9-amazoncorretto-21-alpine AS build
-WORKDIR /usr/portfolio-back
-COPY src src
+WORKDIR /app
 COPY pom.xml .
+COPY src src
 RUN mvn -f pom.xml clean package -Dmaven.test.skip
 
 # Package stage
 FROM amazoncorretto:21-alpine-jdk
-WORKDIR /usr/portfolio-back
+WORKDIR /app
 COPY .env .
-COPY --from=build /usr/portfolio-back/target/portfolio-back-0.0.1-SNAPSHOT.jar portfolio-back.jar
+COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "portfolio-back.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]

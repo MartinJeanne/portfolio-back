@@ -20,7 +20,7 @@ spring:
         format_sql: true
     hibernate:
       ddl-auto: update
-    show-sql: true
+    show-sql: ${DO_SHOW_SQL}
 
   # Mail
   mail:
@@ -40,10 +40,10 @@ logging:
   level:
     org:
       hibernate:
-        SQL: DEBUG
+        SQL: ${LOGGING_LEVEL}
         type:
           descriptor:
-            sql: trace
+            sql: ${LOGGING_LEVEL}
 
 jwt:
-  secret: ${JWT_SECRET:611bd31f2abc10ac666eb377691d9bf61c6f397de8dc29c1d9c1d022d81f1a04}
+  secret: ${JWT_SECRET}
